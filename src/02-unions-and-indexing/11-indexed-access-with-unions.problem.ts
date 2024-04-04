@@ -10,7 +10,9 @@ export const programModeEnumMap = {
 } as const;
 
 type ProgramModeEnumMap = typeof programModeEnumMap
-export type IndividualProgram = Exclude<ProgramModeEnumMap[keyof ProgramModeEnumMap], "group" | "announcement">;
+type ValueUnion = ProgramModeEnumMap[keyof ProgramModeEnumMap]
+
+export type IndividualProgram = Exclude<ValueUnion, "group" | "announcement">;
 
 type tests = [
   Expect<
